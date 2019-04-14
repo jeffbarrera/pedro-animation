@@ -31,8 +31,8 @@ graph <- ggplot(ranked.cats, aes(rank, group = category, fill = as.factor(catego
         axis.ticks.y = element_blank(),  # These relate to the axes post-flip
         axis.text.y  = element_blank(),  # These relate to the axes post-flip
         plot.margin = margin(1,1,1,6, "cm")) +
-	transition_states(Year, transition_length = 4, state_length = 1) +
+	transition_states(Year, transition_length = 4, state_length = 0, wrap = FALSE) +
 	ease_aes('cubic-in-out')
 
-animate(graph, fps = 30, duration = 20, width = 1000, height = 600)
-anim_save('graph.gif', path='~/Documents/Personal/pedro-animation')
+animate(graph, fps = 30, duration = 15, width = 1000, height = 600)
+anim_save('graph3.gif', path='~/Documents/Personal/pedro-animation')
