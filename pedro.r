@@ -35,4 +35,4 @@ graph <- ggplot(ranked.cats, aes(rank, group = category, fill = as.factor(catego
 	ease_aes('cubic-in-out')
 
 animate(graph, fps = 30, duration = 15, width = 1000, height = 600)
-anim_save('graph3.gif', path='~/Documents/Personal/pedro-animation')
+anim_save('graph3.gif')
