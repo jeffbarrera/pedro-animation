@@ -22,17 +22,17 @@ ranked.cats <- cum.long %>%
 graph <- ggplot(ranked.cats, aes(rank, group = category, fill = as.factor(category), color = as.factor(category))) +
 	geom_tile(aes(y = num_papers/2, height = num_papers, width = 0.9), color = NA) +
 	coord_flip(clip = "off", expand = FALSE) +
-	geom_text(aes(y = 0, label = paste(category, " ")), vjust = 0.2, hjust = 1) +
+	geom_text(aes(y = 0, label = paste(category, " ")), vjust = 0.2, hjust = 1, size=7) +
 	scale_y_continuous(labels = scales::comma) +
 	guides(color = FALSE, fill = FALSE) +
 	labs(title='{closest_state}', x = "", y = "Cumulative number of records indexed on PEDro") +
-	theme_minimal() +
+	theme_minimal(base_size = 18) +
 	theme(plot.title = element_text(hjust = 0, size = 22),
         axis.ticks.y = element_blank(),  # These relate to the axes post-flip
         axis.text.y  = element_blank(),  # These relate to the axes post-flip
-        plot.margin = margin(1,1,1,6, "cm")) +
+        plot.margin = margin(1,1,1,11, "cm")) +
 	transition_states(Year, transition_length = 4, state_length = 0, wrap = FALSE) +
 	ease_aes('cubic-in-out')
 
-animate(graph, fps = 30, duration = 15, width = 1000, height = 600)
-anim_save('graph3.gif')
+animate(graph, fps = 30, duration = 15, width = 1200, height = 600)
+anim_save('graph5.gif')
